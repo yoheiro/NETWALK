@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+  <script src="components/loader.js"></script>
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="components/loader.css">
+ <script src="components/google-maps/lib/Google.js"></script>
+ <script src="components/google-maps/lib/Google.min.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9ZRBriGRazHgMp4qp0Kw2jUfO2wpMpvA"&callback=initMap" async defer ></script>
+  
+  <!-- 僕らが追加したJｓ -->
+  <script src="js/globalvariable.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/resus.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/pullhook.js"></script>
+  <script src="js/search.js"></script>
+
+  <ons-modal var="cModal">
+    <ons-icon icon="ion-load-c" spin="true"></ons-icon>
+    <br>
+    <br> RESASから情報を取得しています……
+  </ons-modal>
+
+  <script>
+    ons.bootstrap();
+    ons.disableAutoStyling();
+    ons.ready(function() {
+      mainNavigator.onDeviceBackButton = function(event){
+        ons.notification.alert({
+                title: "使用不可",
+                message: "お使いの端末のバックボタンは使用できません。"
+              }); 
+     }
+      cModal.show();
+      setTimeout(cModal.hide,10000);
+      ons.createDialog("login.html").then(function(){
+        setTimeout(dialog.show,10000);
+        });
+    });
+  </script>
+
+</head>
+<body>
+  <!-- 共通ページのNavigator -->
+  <ons-navigator id="mainNavigator" page="tab.html"></ons-navigator>
+  <ons-template id="tab.html">
+  <ons-page>
+    <ons-tabbar var="tabbar" animation="none">
+      <ons-tab
+        icon="ion-ios-clock"
+        label="タイムライン"
+        page="timelineNavi.html"
+        active="true"></ons-tab>
+
+      <ons-tab
+        icon="ion-map"
+        label="マップ"
+        page="mapNavi.html"></ons-tab>
+
+      <ons-tab
+        icon="ion-ios-person"
+        label="マイページ"
+        page="mypageNavi.html"></ons-tab>
+    </ons-tabbar>
+  </ons-page>
+  </ons-template>
+
+  <!-- 各ページのNavigator -->
+  <ons-template id="timelineNavi.html">
+    <ons-page>
+      <ons-navigator id="timelineNavi" page="timeline.html"></ons-navigator>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="mapNavi.html">
+    <ons-page>
+      <ons-navigator id="mapNavi" page="map.html"></ons-navigator>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="mypageNavi.html">
+    <ons-page>
+      <ons-navigator id="mypageNavi" page="mypage.html"></ons-navigator>
+    </ons-page>
+  </ons-template>
+</body>
+</html>

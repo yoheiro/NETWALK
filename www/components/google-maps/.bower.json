@@ -1,0 +1,22 @@
+{
+  "name": "google-maps",
+  "main": "lib/Google.js",
+  "ignore": [
+    "node_modules",
+    "test",
+    "**/.*",
+    "*.json"
+  ],
+  "homepage": "https://github.com/Carrooi/Node-GoogleMaps",
+  "version": "3.3.0",
+  "_release": "3.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.3.0",
+    "commit": "aa3afd4a1b9c00d888fe79dd0c75ca8ad1ced9e5"
+  },
+  "_source": "https://github.com/Carrooi/Node-GoogleMaps.git",
+  "_target": "3.3.0",
+  "_originalSource": "google-maps",
+  "_direct": true
+}

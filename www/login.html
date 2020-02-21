@@ -1,0 +1,15 @@
+<!-- ログインページ -->
+<ons-dialog var="dialog">
+  <ons-toolbar inline>
+    <div class="center">ログイン</div>
+  </ons-toolbar>
+
+  <div style="text-align: center; margin-top: 20px;">
+        <p><ons-input id="username" modifier="underbar" placeholder="ユーザーネーム" float></ons-input></p>
+        <p><ons-input id="password" modifier="underbar" type="password" placeholder="パスワード" float></ons-input></p>
+    </div>
+    
+    <div style="width:90%; margin-left:5%; margin-bottom:5%"><ons-button modifier="large" onclick="dialog.hide(); login()">ログイン</ons-button></div>
+    <div style="width:90%; margin-left:5%"><ons-button modifier="large" onclick="dialog.hide(); mainNavigator.pushPage('register.html')">新規登録</ons-button></div>
+    <p style="text-align:center">パスワードを忘れた方は<span style="color:blue;" onclick="dialog.hide();mainNavigator.pushPage('passwordReset.html')">こちら</span></p>
+</ons-dialog>

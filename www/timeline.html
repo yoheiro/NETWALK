@@ -1,0 +1,19 @@
+<!-- タイムライン表示画面 -->
+<ons-page>
+  <ons-toolbar>
+    <div class="center" style="background:url('img/logo.jpg') center bottom no-repeat; background-size:contain;margin-bottom:1px;"></div>
+
+    <div class="right">
+      <ons-toolbar-button style="margin-right:8%" 
+      onclick="timelineNavi.bringPageTop('commentAdd.html')">
+        <ons-icon icon="ion-ios-compose-outline" size="28px"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+
+    <!-- プルフック機能を実装する -->
+    <ons-pull-hook id="pull-hook" ></ons-pull-hook>
+    
+    <!-- タイムラインを表示する -->
+    <ons-list id="timeline"></ons-list>
+</ons-page>
